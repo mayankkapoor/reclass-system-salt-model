@@ -42,3 +42,27 @@ parameters:
             keepalived_vip_priority: 101
             opencontrail_database_id: 3
             rabbitmq_cluster_role: slave
+        openstack_control_node04:
+          name: ${_param:openstack_control_node04_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.control
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            single_address: ${_param:openstack_control_node04_address}
+            keepalived_vip_priority: 104
+            opencontrail_database_id: 4
+            rabbitmq_cluster_role: slave
+        openstack_control_node05:
+          name: ${_param:openstack_control_node05_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.control
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            single_address: ${_param:openstack_control_node05_address}
+            keepalived_vip_priority: 105
+            opencontrail_database_id: 5
+            rabbitmq_cluster_role: slave

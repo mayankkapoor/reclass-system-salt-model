@@ -27,3 +27,14 @@ parameters:
             linux_system_codename: trusty
             single_address: ${_param:infra_proxy_node02_address}
             keepalived_vip_priority: 101
+        infra_proxy_node03:
+          name: ${_param:infra_proxy_node03_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.proxy
+          - cluster.${_param:cluster_name}.stacklight.proxy
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            single_address: ${_param:infra_proxy_node03_address}
+            keepalived_vip_priority: 103
